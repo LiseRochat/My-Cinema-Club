@@ -58,6 +58,20 @@ class Movie:
             logging.warning(f"Le film {self.title} est déjà enregistré.")
             return False
 
+    def remove_from_movies(self):
+        """
+        Récupère la liste des films.
+        Si c'est le cas on le supprime
+        """
+        movies = self._get_movies()
+        if self.title in movies:
+            movies.remove(self.title)
+            self._write_movies(movies)
+        else:
+            logging.warning(f"Le film {self.title} n'est pas dans liste")
+
+            
+    
 if __name__ == "__main__":
     m = Movie("harry potter")
     print(m)
