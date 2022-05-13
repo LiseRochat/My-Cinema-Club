@@ -6,6 +6,17 @@ CUR_DIR = os.path.dirname(__file__)
 # Chemin du fichier moovies.json
 DATA_FILE = os.path.join(CUR_DIR, "data","moovies.json")
 
+def get_moovies(self):
+        """
+        Récupère tous les films présent dans le fichier moovies.json sous forme d'instance de Movie
+        """
+        movies = []
+        with open(DATA_FILE, "r") as file:
+            movies_title = json.load(file)
+        for movie_title in movies_title:
+            new_moovie = Movie(movie_title)
+            movies.append(new_moovie)
+
 class Movie:
     def __init__(self, title : str):
         self.title = title
@@ -14,7 +25,6 @@ class Movie:
         """
         Affiche et Formate l'affichage de l'instance créer 
 
-        Returns:
             str : convertion la première lettre de chaque mot en majuscule, retourne le titre
         """
         return f"{self.title.title()}\n"
@@ -69,7 +79,6 @@ class Movie:
             self._write_movies(movies)
         else:
             logging.warning(f"Le film {self.title} n'est pas dans liste")
-
             
     
 if __name__ == "__main__":
