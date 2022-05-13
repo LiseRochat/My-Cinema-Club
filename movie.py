@@ -25,6 +25,7 @@ class Movie:
         """
         Affiche et Formate l'affichage de l'instance créer 
 
+        Returns:
             str : convertion la première lettre de chaque mot en majuscule, retourne le titre
         """
         return f"{self.title.title()}\n"
