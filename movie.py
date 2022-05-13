@@ -1,4 +1,5 @@
-import os
+import os, json
+
 # Chemin du dossier my-cinema-club
 CUR_DIR = os.path.dirname(__file__)
 # Chemin du fichier moovies.json
@@ -20,14 +21,23 @@ class Movie:
     def _get_movies(self):
         """
         Méthode pour Ouvrir et lire le fichier moovies.jsson
-        """
-        pass
 
-    def _write_movies(self):
+        Returns:
+            liste: contenu du fichier moovies.json
+        """
+        with open(DATA_FILE, "r") as file:
+            movie = json.load(file)
+        return movie
+
+    def _write_movies(self, movies):
         """
         Méthode pour Ouvrir et Ecrire dans le fichier moovies.json
+
+        Args:
+            movies (list[str]): liste de films
         """
-        pass
+        with open(DATA_FILE, "a") as file:
+            json.dump(movies,file, indent=4)
 
 
 if __name__ == "__main__":
