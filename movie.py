@@ -1,5 +1,6 @@
-import os, json
+import os, json, logging
 
+logging.basicConfig(level=logging.WARNING, format="%(asctime)s - %(levelname)s : %(message)s")
 # Chemin du dossier my-cinema-club
 CUR_DIR = os.path.dirname(__file__)
 # Chemin du fichier moovies.json
@@ -17,7 +18,7 @@ class Movie:
             str : convertion la première lettre de chaque mot en majuscule, retourne le titre
         """
         return f"{self.title.title()}\n"
-
+    
     def _get_movies(self):
         """
         Méthode pour Ouvrir et lire le fichier moovies.jsson
@@ -38,7 +39,24 @@ class Movie:
         """
         with open(DATA_FILE, "a") as file:
             json.dump(movies,file, indent=4)
+    
+    def add_to_moovies(self):
+        """
+        Récupère la liste des films.
+        Vérifie que le film n'est pas déjà dans la liste. Si ce n'est pas le cas on l'ajoute dans la liste. 
+        Sinon on affiche un message pour indiquer que le film est déjà dans la liste.
 
+        Returns:
+            booléen: Vrais si le film est ajouté, Faux : message indiquant que le film existe déjà 
+        """
+        moovies = self._get_movies()
+        if self.title not in moovies:
+            moovies.append(self.title)
+            self._write_movies(moovies)
+            return True
+        else:
+            logging.warning(f"Le film {self.title} est déjà enregistré.")
+            return False
 
 if __name__ == "__main__":
     m = Movie("harry potter")
