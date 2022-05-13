@@ -24,7 +24,7 @@ class Movie:
     def __str__(self):
         """
         Affiche et Formate l'affichage de l'instance créer 
-        Returns:
+
             str : convertion la première lettre de chaque mot en majuscule, retourne le titre
         """
         return f"{self.title.title()}\n"
@@ -32,6 +32,7 @@ class Movie:
     def _get_movies(self):
         """
         Méthode pour Ouvrir et lire le fichier moovies.jsson
+
         Returns:
             liste: contenu du fichier moovies.json
         """
@@ -42,6 +43,7 @@ class Movie:
     def _write_movies(self, movies):
         """
         Méthode pour Ouvrir et Ecrire dans le fichier moovies.json
+
         Args:
             movies (list[str]): liste de films
         """
@@ -53,6 +55,7 @@ class Movie:
         Récupère la liste des films.
         Vérifie que le film n'est pas déjà dans la liste. Si ce n'est pas le cas on l'ajoute dans la liste. 
         Sinon on affiche un message pour indiquer que le film est déjà dans la liste.
+
         Returns:
             booléen: Vrais si le film est ajouté, Faux : message indiquant que le film existe déjà 
         """
@@ -76,11 +79,6 @@ class Movie:
             self._write_movies(movies)
         else:
             logging.warning(f"Le film {self.title} n'est pas dans liste")
-    
-    
-
-
-
             
     
 if __name__ == "__main__":
