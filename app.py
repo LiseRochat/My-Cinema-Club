@@ -26,19 +26,31 @@ class App(QtWidgets.QWidget):
         self.layout.addWidget(self.btn_delete_movie)
     
     def setup_connections(self):
+        """
+        Connection des widgets au méthodes avec les signaux clicked pour les bouton et returnPressed pour la touche entrée du clavier
+        """
         self.btn_add_movie.clicked.connect(self.add_movie)
         self.btn_delete_movie.clicked.connect(self.remove_movie)
         self.line_movie_title.returnPressed.connect(self.add_movie)
 
     def populate_movies(self):
+        """
+        Affiche les films dans l'interface graphique présent dans le fichier movie.json
+        """
         movies = get_movies()
         for movie in movies:
             self.list_movie.addItem(movie.title)
     
     def add_movie(self):
+        """
+        Ajoute un film a la liste
+        """
         print("Ajouter un film")
     
     def remove_movie(self):
+        """
+        Supprime un ou plusieurs films
+        """
         print("Supprimer un film")
 
 app = QtWidgets.QApplication([])
