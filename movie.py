@@ -88,6 +88,4 @@ class Movie:
             
     
 if __name__ == "__main__":
-    movies = get_movies()
-
-    
+    m = Movie("harry potter")
