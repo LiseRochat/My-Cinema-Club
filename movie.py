@@ -1,5 +1,6 @@
 import os, json, logging
 
+
 logging.basicConfig(level=logging.WARNING, format="%(asctime)s - %(levelname)s : %(message)s")
 # Chemin du dossier my-cinema-club
 CUR_DIR = os.path.dirname(__file__)
@@ -78,8 +79,7 @@ class Movie:
         if self.title in movies:
             movies.remove(self.title)
             self._write_movies(movies)
-        else:
-            logging.warning(f"Le film {self.title} n'est pas dans liste")
+        
             
     
 if __name__ == "__main__":
