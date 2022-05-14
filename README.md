@@ -27,9 +27,7 @@ Realization of a complete application to save all moovies you show
 
 ### Visual
 Here is an overview of project. </br>
-<video controls width="250">
-    <source src="script/project.mp4" type="video/webm">
-</video>
+<img src="script/img/screenshot.png" alt="screenshot result">
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 ***
