@@ -2,7 +2,7 @@
 
 <div align="center">
   <h1> My Cinema Club </h1>
-  <p>A little application to save all moovies you show in Python with PySide2</p>
+  <p>A little application to save all movies you show in Python with PySide2</p>
 </div>
 
 ***
@@ -20,7 +20,7 @@
 ***
 
 ### General Info
-Realization of a complete application to save all moovies you show
+Realization of a complete application to save all movies you show
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 ***
