@@ -8,6 +8,8 @@ class App(QtWidgets.QWidget):
         self.setWindowTitle("Mon ciné Club")
         self.setup_ui()
         self.populate_movies()
+        self.setup_css()
+        self.resize(500,500)
         self.setup_connections()
 
     def setup_ui(self):
@@ -25,6 +27,33 @@ class App(QtWidgets.QWidget):
         self.layout.addWidget(self.btn_add_movie)
         self.layout.addWidget(self.lw_movie)
         self.layout.addWidget(self.btn_delete_movie)
+
+    def setup_css(self):
+        """
+        Style de l'interface
+        """
+        self.setStyleSheet(""" 
+            background-color: #0d3b66;
+        """)
+
+        self.lw_movie_title.setStyleSheet("""
+            background-color: #faf0ca;
+            padding: 20px;
+        """)
+
+        self.lw_movie.setStyleSheet("""
+            background-color: #faf0ca;
+        """)
+
+        self.btn_add_movie.setStyleSheet("""
+            background-color: #f4d35e;
+            padding: 10px;
+        """)
+
+        self.btn_delete_movie.setStyleSheet("""
+            background-color: #f4d35e;
+            padding: 10px;
+        """)
     
     def setup_connections(self):
         """
