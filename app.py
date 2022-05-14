@@ -56,7 +56,8 @@ class App(QtWidgets.QWidget):
             return False
         
         self.list_movie.addItem(movie.title)
-      
+        self.line_movie_title.setText("")
+        
     def remove_movie(self):
         """
         Supprime un ou plusieurs films
