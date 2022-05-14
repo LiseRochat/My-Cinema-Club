@@ -8,6 +8,7 @@ class App(QtWidgets.QWidget):
         self.setWindowTitle("Mon ciné Club")
         self.setup_ui()
         self.populate_movies()
+        self.setup_connections()
 
     def setup_ui(self):
         """
@@ -24,6 +25,11 @@ class App(QtWidgets.QWidget):
         self.layout.addWidget(self.list_movie)
         self.layout.addWidget(self.btn_delete_movie)
     
+    def setup_connections(self):
+        self.btn_add_movie.clicked.connect(self.add_movie)
+        self.btn_delete_movie.clicked.connect(self.remove_movie)
+
+    
     def populate_movies(self):
         movies = get_movies()
         for movie in movies:
@@ -34,7 +40,7 @@ class App(QtWidgets.QWidget):
     
     def remove_movie(self):
         print("Supprimer un film")
-        
+
 app = QtWidgets.QApplication([])
 win = App()
 win.show()
