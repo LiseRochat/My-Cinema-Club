@@ -18,6 +18,7 @@ class App(QtWidgets.QWidget):
         self.line_movie_title = QtWidgets.QLineEdit()
         self.btn_add_movie = QtWidgets.QPushButton("Ajouter un film")
         self.list_movie = QtWidgets.QListWidget()
+        self.list_movie.setSelectionMode(QtWidgets.QListWidget.ExtendedSelection)
         self.btn_delete_movie = QtWidgets.QPushButton("Supprimer le(s) film(s)")
 
         self.layout.addWidget(self.line_movie_title)
@@ -64,7 +65,7 @@ class App(QtWidgets.QWidget):
         """
         Supprime un ou plusieurs films
         """
-        print("Supprimer un film")
+        
 
 app = QtWidgets.QApplication([])
 win = App()
