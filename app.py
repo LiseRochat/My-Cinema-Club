@@ -28,7 +28,13 @@ class App(QtWidgets.QWidget):
         movies = get_movies()
         for movie in movies:
             self.list_movie.addItem(movie.title)
-
+    
+    def add_movie(self):
+        print("Ajouter un film")
+    
+    def remove_movie(self):
+        print("Supprimer un film")
+        
 app = QtWidgets.QApplication([])
 win = App()
 win.show()
