@@ -51,12 +51,14 @@ class App(QtWidgets.QWidget):
         
         movie = Movie(title)
         result = movie.add_to_movies()
+        
+        self.line_movie_title.setText("")
 
         if not result:
             return False
         
         self.list_movie.addItem(movie.title)
-        self.line_movie_title.setText("")
+        
         
     def remove_movie(self):
         """
