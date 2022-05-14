@@ -13,14 +13,16 @@ def get_movies():
         """
         movies_instance = []
         with open(DATA_FILE, "r") as file:
-            movies = json.load(file)
-        for movie in movies:
-            new_movie = Movie(movie)
-            movies.append(new_movie)
+            movies_title = json.load(file)
+
+        for movie_title in movies_title:
+            new_movie = Movie(movie_title)
+            movies_instance.append(new_movie)
+            
         return movies_instance
 
 class Movie:
-    def __init__(self, title : str):
+    def __init__(self, title):
         self.title = title.title()
     
     def __str__(self):
@@ -86,5 +88,6 @@ class Movie:
             
     
 if __name__ == "__main__":
-    m = Movie("lili")
-    m.add_to_movies()
+    movies = get_movies()
+
+    
