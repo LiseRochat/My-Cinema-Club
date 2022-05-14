@@ -1,6 +1,5 @@
 import os, json, logging
 
-from PySide2 import QtWidgets 
 
 logging.basicConfig(level=logging.WARNING, format="%(asctime)s - %(levelname)s : %(message)s")
 # Chemin du dossier my-cinema-club
