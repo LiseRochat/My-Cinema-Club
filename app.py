@@ -15,12 +15,12 @@ class App(QtWidgets.QWidget):
         Création de l'interface graphique
         """
         self.layout = QtWidgets.QVBoxLayout(self)
-        self.line_movie = QtWidgets.QLineEdit()
+        self.line_movie_title = QtWidgets.QLineEdit()
         self.btn_add_movie = QtWidgets.QPushButton("Ajouter un film")
         self.list_movie = QtWidgets.QListWidget()
         self.btn_delete_movie = QtWidgets.QPushButton("Supprimer le(s) film(s)")
 
-        self.layout.addWidget(self.line_movie)
+        self.layout.addWidget(self.line_movie_title)
         self.layout.addWidget(self.btn_add_movie)
         self.layout.addWidget(self.list_movie)
         self.layout.addWidget(self.btn_delete_movie)
@@ -28,8 +28,8 @@ class App(QtWidgets.QWidget):
     def setup_connections(self):
         self.btn_add_movie.clicked.connect(self.add_movie)
         self.btn_delete_movie.clicked.connect(self.remove_movie)
+        self.line_movie_title.returnPressed.connect(self.add_movie)
 
-    
     def populate_movies(self):
         movies = get_movies()
         for movie in movies:
