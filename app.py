@@ -43,10 +43,23 @@ class App(QtWidgets.QWidget):
     
     def add_movie(self):
         """
-        Ajoute un film a la liste
+        Ajoute un film à la liste et l'affiche sur l'interface
         """
-        print("Ajouter un film")
-    
+        title = self.line_movie_title.text()
+        if not title :
+            return False
+        
+        movie = Movie(title)
+        result = movie.add_to_movies()
+        
+        self.line_movie_title.setText("")
+
+        if not result:
+            return False
+        
+        self.list_movie.addItem(movie.title)
+        
+        
     def remove_movie(self):
         """
         Supprime un ou plusieurs films
